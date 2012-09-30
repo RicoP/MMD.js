@@ -1,7 +1,5 @@
 (function() {
-
   MMD.ShadowMap = (function() {
-
     function ShadowMap(mmd) {
       this.mmd = mmd;
       this.framebuffer = this.texture = null;
@@ -10,7 +8,6 @@
       this.debug = false;
       this.initFramebuffer();
     }
-
     ShadowMap.prototype.initFramebuffer = function() {
       var gl, renderbuffer;
       gl = this.mmd.gl;
@@ -31,7 +28,6 @@
       gl.bindRenderbuffer(gl.RENDERBUFFER, null);
       return gl.bindFramebuffer(gl.FRAMEBUFFER, null);
     };
-
     ShadowMap.prototype.computeMatrices = function() {
       var cameraPosition, center, cx, cy, lengthScale, lightDirection, size, viewMatrix;
       center = vec3.create(this.mmd.center);
@@ -47,7 +43,6 @@
       cy = center[1];
       this.pMatrix = mat4.ortho(cx - size, cx + size, cy - size, cy + size, -size, size);
     };
-
     ShadowMap.prototype.beforeRender = function() {
       var gl, program;
       gl = this.mmd.gl;
@@ -59,7 +54,6 @@
       gl.uniformMatrix4fv(program.uMVMatrix, false, this.mvMatrix);
       gl.uniformMatrix4fv(program.uPMatrix, false, this.pMatrix);
     };
-
     ShadowMap.prototype.afterRender = function() {
       var gl, program;
       gl = this.mmd.gl;
@@ -68,9 +62,10 @@
       gl.bindTexture(gl.TEXTURE_2D, this.texture);
       gl.generateMipmap(gl.TEXTURE_2D);
       gl.bindTexture(gl.TEXTURE_2D, null);
-      if (this.debug) this.debugTexture();
+      if (this.debug) {
+        this.debugTexture();
+      }
     };
-
     ShadowMap.prototype.getLightMatrix = function() {
       var lightMatrix;
       lightMatrix = mat4.createMultiply(this.pMatrix, this.mvMatrix);
@@ -78,7 +73,6 @@
       mat4.applyTranslate(lightMatrix, [0.5, 0.5, 0.5]);
       return lightMatrix;
     };
-
     ShadowMap.prototype.debugTexture = function() {
       var canvas, ctx, data, gl, i, imageData, pixelarray, _ref;
       gl = this.mmd.gl;
@@ -103,13 +97,9 @@
       }
       return ctx.putImageData(imageData, 0, 0);
     };
-
     ShadowMap.prototype.getTexture = function() {
       return this.texture;
     };
-
     return ShadowMap;
-
   })();
-
 }).call(this);

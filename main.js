@@ -17,7 +17,8 @@ window.onload = function() {
   //var miku = new MMD.Model('Lat', 'Normal.pmd');
   //var miku = new MMD.Model('mobko', 'mobko.pmd');
   //var miku = new MMD.Model('yufu', 'yufu.pmd');
-  //var miku = new MMD.Model('defoko', 'defoko.pmd');
+  //var miku = new MMD.Model('model', 'Rin_Kagamine.pmd');
+
   miku.load(function() {
     mmd.addModel(miku);
     mmd.initBuffers();
@@ -28,10 +29,20 @@ window.onload = function() {
       mmd.addModelMotion(miku, dance, true);
 
       mmd.play()
-
-      setInterval(function() {
-        console.log('fps = ' + mmd.realFps);
-      }, 1000);
     });
   });
 };
+/*
+Dammy_Bone.pmd
+Haku_Yowane.pmd
+KAITO.pmd
+Len_Kagamine.pmd
+MEIKO.pmd
+Meiko_Sakine.pmd
+Miku_Hatsune_metal.pmd
+Miku_Hatsune.pmd
+Miku_Hatsune_Ver2.pmd
+Neru_Akita.pmd
+Rin_Kagamene_act2.pmd
+Rin_Kagamine.pmd
+*/

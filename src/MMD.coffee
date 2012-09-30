@@ -192,7 +192,8 @@ class this.MMD
         @realFps = @fps / (now - before) * 1000
         before = now
 
-      setTimeout(step, (t0 + count * interval) - now) # target_time - now
+      #setTimeout(step, (t0 + count * interval) - now) # target_time - now
+      requestAnimationFrame(step); 
 
     step()
     return
