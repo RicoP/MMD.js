@@ -1,0 +1,9 @@
+#!/bin/sh
+coffee -o deploy/mmd -c src/MMD.coffee
+coffee -o deploy/mmd -c src/MMD.FragmentShaderSource.coffee
+coffee -o deploy/mmd -c src/MMD.Model.coffee
+coffee -o deploy/mmd -c src/MMD.Motion.coffee
+coffee -o deploy/mmd -c src/MMD.MotionManager.coffee
+coffee -o deploy/mmd -c src/MMD.ShadowMap.coffee
+coffee -o deploy/mmd -c src/MMD.TextureManager.coffee
+coffee -o deploy/mmd -c src/MMD.VertexShaderSource.coffee
